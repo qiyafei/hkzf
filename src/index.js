@@ -1,13 +1,21 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter as Router, NavLink, Route } from 'react-router-dom'
-import 'antd-mobile/dist/antd-mobile.css'
-import './index.css'
+import { BrowserRouter as Router } from 'react-router-dom'
+import App from './App'
 
-class App extends React.Component {
+class Hkzf extends React.Component {
   render() {
-    return <div>123</div>
+    return (
+      <div>
+        <App />
+      </div>
+    )
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(
+  <Router>
+    <Hkzf />
+  </Router>,
+  document.getElementById('root')
+)
