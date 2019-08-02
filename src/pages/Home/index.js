@@ -1,7 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink, Route } from 'react-router-dom'
 import '../../assets/fonts/iconfont.css'
 import './base.scss'
+import Index from './Index/index'
+import House from './House/index'
+import News from './News/index'
+import My from './My/index'
 
 class Home extends React.Component {
   render() {
@@ -10,31 +14,35 @@ class Home extends React.Component {
         <div className="btmNav">
           <ul>
             <li>
-              <Link to="1">
+              <NavLink to="/home/index">
                 <i className="iconfont icon-ind" />
                 <p>首页</p>
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="2">
-                <i className="iconfont icon-ind" />
-                <p>首页</p>
-              </Link>
+              <NavLink to="/home/house">
+                <i className="iconfont icon-findHouse" />
+                <p>找房</p>
+              </NavLink>
             </li>
             <li>
-              <Link to="3">
-                <i className="iconfont icon-ind" />
-                <p>首页</p>
-              </Link>
+              <NavLink to="/home/news">
+                <i className="iconfont icon-infom" />
+                <p>资讯</p>
+              </NavLink>
             </li>
             <li>
-              <Link to="4">
-                <i className="iconfont icon-ind" />
-                <p>首页</p>
-              </Link>
+              <NavLink to="/home/my">
+                <i className="iconfont icon-my" />
+                <p>我的</p>
+              </NavLink>
             </li>
           </ul>
         </div>
+        <Route path="/home/index" component={Index} />
+        <Route path="/home/house" component={House} />
+        <Route path="/home/news" component={News} />
+        <Route path="/home/my" component={My} />
       </div>
     )
   }
