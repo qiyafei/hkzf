@@ -1,12 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { BrowserRouter as Router, NavLink, Route } from 'react-router-dom'
+import 'antd-mobile/dist/antd-mobile.css'
+import './index.css'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+class App extends React.Component {
+  render() {
+    return <div>123</div>
+  }
+}
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+ReactDOM.render(<App />, document.getElementById('root'))
