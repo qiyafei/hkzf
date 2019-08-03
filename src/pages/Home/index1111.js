@@ -2,15 +2,20 @@ import React from 'react'
 import { NavLink, Route } from 'react-router-dom'
 import '../../assets/fonts/iconfont.css'
 import './base.scss'
-import Index from './Index/index'
-import House from './House/index'
-import News from './News/index'
-import My from './My/index'
+import Index from './Index/index.js'
+import House from './House'
+import News from './News'
+import My from './My'
 
 class Home extends React.Component {
   render() {
     return (
       <div className="home">
+        {/* 配置路由规则 */}
+        <Route path="/home/index" component={Index} />
+        <Route path="/home/house" component={House} />
+        <Route path="/home/news" component={News} />
+        <Route path="/home/my" component={My} />
         <div className="btmNav">
           <ul>
             <li>
@@ -39,10 +44,6 @@ class Home extends React.Component {
             </li>
           </ul>
         </div>
-        <Route path="/home/index" component={Index} />
-        <Route path="/home/house" component={House} />
-        <Route path="/home/news" component={News} />
-        <Route path="/home/my" component={My} />
       </div>
     )
   }

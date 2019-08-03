@@ -1,10 +1,11 @@
 import React from 'react'
 import 'antd-mobile/dist/antd-mobile.css'
 import './index.scss'
-import Home from './pages/Home/index.js'
+import Home from './pages/Home'
 import City from './pages/City'
 import Map from './pages/Map'
-import { Route, Redirect } from 'react-router-dom'
+import NotFound from './pages/404'
+import { Route, Redirect, Switch } from 'react-router-dom'
 
 class App extends React.Component {
   render() {
@@ -12,10 +13,13 @@ class App extends React.Component {
       <div className="app">
         <hr />
         {/* 配置路由规则 */}
-        <Redirect form="/" to="home" />
-        <Route path="/home" component={Home} />
-        <Route path="/city" component={City} />
-        <Route path="/map" component={Map} />
+        <Switch>
+          <Redirect exact from="/" to="/home/index" />
+          <Route path="/home" component={Home} />
+          <Route path="/city" component={City} />
+          <Route path="/map" component={Map} />
+          <Route component={NotFound} />
+        </Switch>
       </div>
     )
   }
