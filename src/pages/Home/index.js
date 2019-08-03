@@ -6,46 +6,83 @@ import Index from './Index/index'
 import House from './House/index'
 import News from './News/index'
 import My from './My/index'
+import { TabBar } from 'antd-mobile'
 
-class Home extends React.Component {
+class TabBarExample extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      selectedTab: 'blueTab',
+      fullScreen: false
+    }
+  }
+
   render() {
     return (
-      <div className="home">
-        <div className="btmNav">
-          <ul>
-            <li>
-              <NavLink to="/home/index">
-                <i className="iconfont icon-ind" />
-                <p>首页</p>
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/home/house">
-                <i className="iconfont icon-findHouse" />
-                <p>找房</p>
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/home/news">
-                <i className="iconfont icon-infom" />
-                <p>资讯</p>
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/home/my">
-                <i className="iconfont icon-my" />
-                <p>我的</p>
-              </NavLink>
-            </li>
-          </ul>
+      <div className="index">
+        {/* 底部TabBar切换栏 */}
+        <div>
+          <TabBar
+            unselectedTintColor="#949494"
+            tintColor="red"
+            barTintColor="#fff"
+            noRenderContent={true}
+          >
+            <TabBar.Item
+              title="首页"
+              key="首页"
+              icon={<i className="iconfont icon-ind" />}
+              selectedIcon={<i className="iconfont icon-ind" />}
+              selected={this.state.selectedTab === 'blueTab'}
+              onPress={() => {
+                this.setState({
+                  selectedTab: 'blueTab'
+                })
+              }}
+              data-seed="logId"
+            />
+            <TabBar.Item
+              icon={<i className="iconfont icon-findHouse" />}
+              selectedIcon={<i className="iconfont icon-findHouse" />}
+              title="找房"
+              key="找房"
+              selected={this.state.selectedTab === 'redTab'}
+              onPress={() => {
+                this.setState({
+                  selectedTab: 'redTab'
+                })
+              }}
+              data-seed="logId1"
+            />
+            <TabBar.Item
+              icon={<i className="iconfont icon-infom" />}
+              selectedIcon={<i className="iconfont icon-infom" />}
+              title="资讯"
+              key="资讯"
+              selected={this.state.selectedTab === 'greenTab'}
+              onPress={() => {
+                this.setState({
+                  selectedTab: 'greenTab'
+                })
+              }}
+            />
+            <TabBar.Item
+              icon={<i className="iconfont icon-my" />}
+              selectedIcon={<i className="iconfont icon-my" />}
+              title="我的"
+              key="我的"
+              selected={this.state.selectedTab === 'yellowTab'}
+              onPress={() => {
+                this.setState({
+                  selectedTab: 'yellowTab'
+                })
+              }}
+            />
+          </TabBar>
         </div>
-        <Route path="/home/index" component={Index} />
-        <Route path="/home/house" component={House} />
-        <Route path="/home/news" component={News} />
-        <Route path="/home/my" component={My} />
       </div>
     )
   }
 }
 
-export default Home
+export default TabBarExample
