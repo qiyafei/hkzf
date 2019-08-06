@@ -11,10 +11,9 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
-        <hr />
         {/* 配置路由规则 */}
         <Switch>
-          <Redirect exact from="/" to="/home/index" />
+          <Redirect exact from="/" to="/home" />
           <Route path="/home" component={Home} />
           <Route path="/city" component={City} />
           <Route path="/map" component={Map} />

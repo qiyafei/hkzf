@@ -6,7 +6,7 @@ import App from './App'
 class Hkzf extends React.Component {
   render() {
     return (
-      <div>
+      <div className="App">
         <App />
       </div>
     )
